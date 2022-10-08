@@ -11,6 +11,8 @@ import { persistStore } from 'redux-persist'
 import store from '@store/index'
 import App from './App'
 
+import '@fontsource/space-grotesk'
+
 import '@css/main.less'
 
 const root = createRoot(document.getElementById('root') as Element)

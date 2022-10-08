@@ -53,6 +53,7 @@
     "paths": {
       "@api/*": ["./src/api/*"],
       "@css/*": ["./src/assets/css/*"],
+      "@img/*": ["./src/assets/images/*"],
       "@views/*": ["./src/views/*"], 
       "@components/*": ["./src/components/*"], 
       "@routes/*": ["./src/routes/*"], 

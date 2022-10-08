@@ -6,11 +6,9 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { homeLang } from '@langs/index'
 
-import { useAppDispatch } from '@store/index'
-
-import { setLang } from '@store/modules/lang'
-
 import langHook from '@hooks/langHook'
+
+import Header from '@components/Header'
 
 import 'swiper/css'
 
@@ -23,14 +21,11 @@ SwiperCore.use([Mousewheel, FreeMode, Scrollbar])
 
 export default (): JSX.Element => {
   const lang = langHook()
-  const dispatch = useAppDispatch()
 
-  const handle = () => {
-    // dispatch(setLang('en_us'))
-    dispatch(setLang('zh_cn'))
-  }
+
   return (
     <div className="home">
+      <Header />
       <Swiper
         direction="vertical"
         mousewheel
@@ -40,7 +35,6 @@ export default (): JSX.Element => {
       >
         <SwiperSlide className="swiper-no-swiping">
           Slide 1{lang(homeLang.login)}
-          <button onClick={handle}>按钮</button>
         </SwiperSlide>
         <SwiperSlide className="swiper-no-swiping">Slide 2</SwiperSlide>
         <SwiperSlide className="swiper-no-swiping">
