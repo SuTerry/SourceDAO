@@ -5,8 +5,11 @@ import SwiperCore, { Mousewheel, FreeMode, Scrollbar } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import Header from '@components/Header'
+import Footer from '@components/Footer'
 
 import Index from './Index/index'
+import Road from './Road'
+import Team from './Team'
 
 import 'swiper/css'
 
@@ -41,6 +44,7 @@ export default (): JSX.Element => {
       <Swiper
         direction="vertical"
         slidesPerView="auto"
+        spaceBetween={30}
         mousewheel
         scrollbar={{
           el: '.swiper-scrollbar',
@@ -51,7 +55,9 @@ export default (): JSX.Element => {
         <SwiperSlide className="swiper-no-swiping">
           <Index />
         </SwiperSlide>
-        <SwiperSlide className="swiper-no-swiping">Slide 2</SwiperSlide>
+        <SwiperSlide className="swiper-no-swiping">
+          <Road />
+        </SwiperSlide>
         <SwiperSlide className="swiper-no-swiping">
           <Swiper
             direction="vertical"
@@ -68,37 +74,10 @@ export default (): JSX.Element => {
             onSwiper={(swiper) => setSwiperI(swiper)}
           >
             <SwiperSlide className="swiper-no-swiping">
-              <h4>一段很长的内容</h4>
-              <p>
-                一<br />段<br />很<br />长<br />的<br />内<br />容
-              </p>
-              <p>
-                一<br />段<br />很<br />长<br />的<br />内<br />容
-              </p>
-              <p>
-                一<br />段<br />很<br />长<br />的<br />内<br />容
-              </p>
-              <p>
-                一<br />段<br />很<br />长<br />的<br />内<br />容
-              </p>
-              <p>
-                一<br />段<br />很<br />长<br />的<br />内<br />容
-              </p>
-              <p>
-                一<br />段<br />很<br />长<br />的<br />内<br />容
-              </p>
-              <p>
-                一<br />段<br />很<br />长<br />的<br />内<br />容
-              </p>
-              <p>
-                一<br />段<br />很<br />长<br />的<br />内<br />容
-              </p>
-              <p>
-                一<br />段<br />很<br />长<br />的<br />内<br />容
-              </p>
-              <p>
-                一<br />段<br />很<br />长<br />的<br />内<br />容
-              </p>
+              <Team />
+            </SwiperSlide>
+            <SwiperSlide className="swiper-no-swiping">
+              <Footer />
             </SwiperSlide>
           </Swiper>
         </SwiperSlide>

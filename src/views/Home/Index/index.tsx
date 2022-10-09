@@ -9,7 +9,7 @@ import langHook from '@hooks/langHook'
 import './index.less'
 
 import arrowImg from '@img/home/arrow.png'
-import logoImg from '@img/home/index/logo.png'
+import source_daoImg from '@img/home/source_dao.png'
 
 export default (): JSX.Element => {
   const swiper = useSwiper()
@@ -20,11 +20,9 @@ export default (): JSX.Element => {
     <div className="home_index">
       <div className="home_index_content">
         <div className="h_i_c_bg"></div>
-        <div className="h_i_c_logo">
-          <img src={logoImg} alt="" />
-        </div>
+        <div className="h_i_c_logo"></div>
         <div className="h_i_c_text">
-          <h1>SOURCE DAO</h1>
+          <img src={source_daoImg} alt="" />
           <h6>{lang(homeLang.title)}</h6>
           <p>{lang(homeLang.sub_title)}</p>
         </div>
