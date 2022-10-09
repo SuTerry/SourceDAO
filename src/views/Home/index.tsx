@@ -1,14 +1,12 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 
 import SwiperCore, { Mousewheel, FreeMode, Scrollbar } from 'swiper'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { homeLang } from '@langs/index'
-
-import langHook from '@hooks/langHook'
-
 import Header from '@components/Header'
+
+import Index from './Index/index'
 
 import 'swiper/css'
 
@@ -20,21 +18,38 @@ import './index.less'
 SwiperCore.use([Mousewheel, FreeMode, Scrollbar])
 
 export default (): JSX.Element => {
-  const lang = langHook()
+  const [routerIndex, setRouterIndex] = useState(0)
 
+  const [swiperO, setSwiperO] = useState<SwiperCore>()
+
+  const [swiperI, setSwiperI] = useState<SwiperCore>()
+
+  const toSlide = useCallback(
+    (index: number) => {
+      if (index > 3) {
+        swiperO?.slideTo(3)
+      } else {
+        swiperO?.slideTo(index)
+      }
+    },
+    [swiperO, swiperI]
+  )
 
   return (
     <div className="home">
-      <Header />
+      <Header routerIndex={routerIndex} toSlide={toSlide} />
       <Swiper
         direction="vertical"
+        slidesPerView="auto"
         mousewheel
         scrollbar={{
           el: '.swiper-scrollbar',
         }}
+        onSlideChange={(swiper) => setRouterIndex(swiper.activeIndex)}
+        onSwiper={(swiper) => setSwiperO(swiper)}
       >
         <SwiperSlide className="swiper-no-swiping">
-          Slide 1{lang(homeLang.login)}
+          <Index />
         </SwiperSlide>
         <SwiperSlide className="swiper-no-swiping">Slide 2</SwiperSlide>
         <SwiperSlide className="swiper-no-swiping">
@@ -49,6 +64,8 @@ export default (): JSX.Element => {
               draggable: true,
               hide: true,
             }}
+            // onScroll={(swiper) => }
+            onSwiper={(swiper) => setSwiperI(swiper)}
           >
             <SwiperSlide className="swiper-no-swiping">
               <h4>一段很长的内容</h4>

@@ -1,7 +1,5 @@
 import React, { useState, useEffect, SyntheticEvent } from 'react'
 
-import { Link, useLocation } from 'react-router-dom'
-
 import { useAppDispatch, useAppSelector } from '@store/index'
 
 import { setLang } from '@store/modules/lang'
@@ -17,30 +15,21 @@ import './index.less'
 import logoImg from '@img/header/logo.png'
 import localImg from '@img/header/local.png'
 
+interface HeaderProps {
+  routerIndex: number
+  toSlide: (index: number) => void
+}
+
 const router = [
-  {
-    name: headerLang.home,
-    url: '/'
-  },
-  {
-    name: headerLang.roadmap,
-    url: '#'
-  },
-  {
-    name: headerLang.team,
-    url: '#'
-  },
-  {
-    name: headerLang.medium,
-    url: '#'
-  },
+  headerLang.home,
+  headerLang.roadmap,
+  headerLang.team,
+  headerLang.medium,
 ]
 
-export default (): JSX.Element => {
+export default ({routerIndex, toSlide}: HeaderProps): JSX.Element => {
 
   const [popShow, setPopShow] = useState(false)
-
-  const { pathname } = useLocation()
 
   const dispatch = useAppDispatch()
 
@@ -58,6 +47,11 @@ export default (): JSX.Element => {
   }
 
   const handleDoc = () => setPopShow(false)
+
+  const handleRoute = (event: SyntheticEvent<EventTarget>, index: number) => {
+    event.preventDefault()
+    toSlide(index)
+  }
 
   useEffect(() => {
     document.addEventListener('click', handleDoc)
@@ -77,9 +71,9 @@ export default (): JSX.Element => {
             {
               router.map((route, index) => {
                 return (
-                  <li className={pathname === route.url ? 'h_w_b_r_current' : ''} key={index}>
+                  <li className={routerIndex === index ? 'h_w_b_r_current' : ''} key={index}>
                     {index > 0 ? <span>/</span> : <></>}
-                    <Link to={route.url}>{local(route.name)}</Link>
+                    <a href="#" onClick={(event) => handleRoute(event, index)}>{local(route)}</a>
                   </li>
                 )
               })
