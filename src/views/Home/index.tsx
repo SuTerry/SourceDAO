@@ -27,12 +27,40 @@ export default (): JSX.Element => {
 
   const [swiperI, setSwiperI] = useState<SwiperCore>()
 
+  const handleSwiperChange = (index: number) => {
+    setRouterIndex(index)
+    swiperO?.mousewheel.enable()
+  }
+
+  const handleSubSwiperChange = (index: number) => {
+    const num = index === 0 ? 2 : 3
+    setRouterIndex(num)
+  }
+
+  const handleSubSwiperScroll = async (isBeginning: boolean) => { 
+    if (!isBeginning) return swiperO?.mousewheel.disable()
+
+    setTimeout(() => {
+      swiperO?.mousewheel.enable()
+    }, 100)
+    
+  }
+
   const toSlide = useCallback(
     (index: number) => {
-      if (index > 3) {
-        swiperO?.slideTo(3)
-      } else {
-        swiperO?.slideTo(index)
+      switch (index) {
+        case 2:
+          swiperO?.slideTo(2)
+          swiperI?.slideTo(0)
+          break
+        case 3:
+          swiperO?.slideTo(2)
+          swiperI?.slideTo(1)
+          break
+
+        default:
+          swiperO?.slideTo(index)
+          break
       }
     },
     [swiperO, swiperI]
@@ -44,25 +72,27 @@ export default (): JSX.Element => {
       <Swiper
         direction="vertical"
         slidesPerView="auto"
-        spaceBetween={30}
+        spaceBetween={40}
         mousewheel
+        simulateTouch={false}
         scrollbar={{
           el: '.swiper-scrollbar',
         }}
-        onSlideChange={(swiper) => setRouterIndex(swiper.activeIndex)}
+        onSlideChange={(swiper) => handleSwiperChange(swiper.activeIndex)}
         onSwiper={(swiper) => setSwiperO(swiper)}
       >
-        <SwiperSlide className="swiper-no-swiping">
+        <SwiperSlide>
           <Index />
         </SwiperSlide>
-        <SwiperSlide className="swiper-no-swiping">
+        <SwiperSlide>
           <Road />
         </SwiperSlide>
-        <SwiperSlide className="swiper-no-swiping">
+        <SwiperSlide>
           <Swiper
             direction="vertical"
             slidesPerView="auto"
             mousewheel
+            simulateTouch={false}
             nested
             autoHeight
             freeMode
@@ -70,13 +100,16 @@ export default (): JSX.Element => {
               draggable: true,
               hide: true,
             }}
-            // onScroll={(swiper) => }
+            onSlideChange={(swiper) => handleSubSwiperChange(swiper.activeIndex)
+            }
             onSwiper={(swiper) => setSwiperI(swiper)}
+            onScroll={swiper => handleSubSwiperScroll(swiper.isBeginning)}
+
           >
-            <SwiperSlide className="swiper-no-swiping">
+            <SwiperSlide>
               <Team />
             </SwiperSlide>
-            <SwiperSlide className="swiper-no-swiping">
+            <SwiperSlide>
               <Footer />
             </SwiperSlide>
           </Swiper>

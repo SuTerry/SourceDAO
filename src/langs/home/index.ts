@@ -128,6 +128,86 @@ const team_sub_title: Lang = {
   [ctsLang.en_us]: 'Made up of decentralized believers and the belief is to create a purely decentralized world.',
 }
 
+const team_william_text1: Lang = {
+  [ctsLang.zh_cn]: '10年物联网及金融从业经验',
+  [ctsLang.en_us]: 'in Internet and finance',
+}
+
+const team_william_text1_outline: Lang = {
+  [ctsLang.zh_cn]: '',
+  [ctsLang.en_us]: '10 years of experience ',
+}
+
+const team_william_text2: Lang = {
+  [ctsLang.zh_cn]: '5年运营团队管理',
+  [ctsLang.en_us]: '5 years of ',
+}
+
+const team_william_text2_outline: Lang = {
+  [ctsLang.zh_cn]: '',
+  [ctsLang.en_us]: 'operation team management',
+}
+
+const team_william_text3: Lang = {
+  [ctsLang.zh_cn]: '完成多个金融、互联网项目的全流程搭建及运营',
+  [ctsLang.en_us]: 'Extensive experience in the full process of building and operating several financial and internet projects',
+}
+
+const team_lead_text1_before: Lang = {
+  [ctsLang.zh_cn]: '熟悉各类金融产品的底层逻辑及商业模型（传统金融市场 & 区块链金融）',
+  [ctsLang.en_us]: 'Familiar with the ',
+}
+
+const team_lead_text1_outline: Lang = {
+  [ctsLang.zh_cn]: '',
+  [ctsLang.en_us]: 'underlying logic and business models',
+}
+
+const team_lead_text1_after: Lang = {
+  [ctsLang.zh_cn]: '',
+  [ctsLang.en_us]: ' of various financial products (traditional financial market & crypto finance)',
+}
+
+const team_lead_text2: Lang = {
+  [ctsLang.zh_cn]: '证券经济业务 & 数字货币交易 & Defi等金融产品的全球化产品战略规划能力和经验',
+  [ctsLang.en_us]: 'Ability and experience in global product strategic planning for financial products such as ',
+}
+
+const team_lead_text2_outline: Lang = {
+  [ctsLang.zh_cn]: '',
+  [ctsLang.en_us]: 'securities brokerage & digital currency trading and Defi',
+}
+
+const team_raymondcoder_text1: Lang = {
+  [ctsLang.zh_cn]: '10+年机器学习和互联网后端开发经验',
+  [ctsLang.en_us]: ' of experience in machine learning and internet backend development',
+}
+const team_raymondcoder_text1_outline: Lang = {
+  [ctsLang.zh_cn]: '',
+  [ctsLang.en_us]: '10+ years',
+}
+
+const team_raymondcoder_text2_before: Lang = {
+  [ctsLang.zh_cn]: '熟悉Solidarity合约开发',
+  [ctsLang.en_us]: 'Familiar with ',
+}
+
+const team_raymondcoder_text2_outline: Lang = {
+  [ctsLang.zh_cn]: '',
+  [ctsLang.en_us]: 'Solidarity contract',
+}
+
+const team_raymondcoder_text2_after: Lang = {
+  [ctsLang.zh_cn]: '',
+  [ctsLang.en_us]: ' development',
+}
+
+const team_raymondcoder_text3: Lang = {
+  [ctsLang.zh_cn]: '精通Python，Rust等开发语言',
+  [ctsLang.en_us]: 'Proficient in Python, Rust and other development languages',
+}
+
+
 export {
   title,
   sub_title,
@@ -154,4 +234,20 @@ export {
   road_setp_4_3,
   team_title,
   team_sub_title,
+  team_william_text1,
+  team_william_text1_outline,
+  team_william_text2,
+  team_william_text2_outline,
+  team_william_text3,
+  team_lead_text1_before,
+  team_lead_text1_outline,
+  team_lead_text1_after,
+  team_lead_text2,
+  team_lead_text2_outline,
+  team_raymondcoder_text1,
+  team_raymondcoder_text1_outline,
+  team_raymondcoder_text2_before,
+  team_raymondcoder_text2_outline,
+  team_raymondcoder_text2_after,
+  team_raymondcoder_text3,
 }

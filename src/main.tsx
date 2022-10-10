@@ -12,7 +12,6 @@ import store from '@store/index'
 import App from './App'
 
 import '@fontsource/space-grotesk'
-import '@fontsource/bebas-neue'
 
 import '@css/main.less'
 

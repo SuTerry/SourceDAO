@@ -8,3 +8,4 @@ export interface Lang {
 
 export * as homeLang from './home'
 export * as headerLang from './header'
+export * as footerLang from './footer'
