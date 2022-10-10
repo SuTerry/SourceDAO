@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 
 import SwiperCore, { Mousewheel, FreeMode, Scrollbar } from 'swiper'
 
@@ -10,6 +10,8 @@ import Footer from '@components/Footer'
 import Index from './Index/index'
 import Road from './Road'
 import Team from './Team'
+
+import snowflake from '@utils/snowflake'
 
 import 'swiper/css'
 
@@ -37,13 +39,12 @@ export default (): JSX.Element => {
     setRouterIndex(num)
   }
 
-  const handleSubSwiperScroll = async (isBeginning: boolean) => { 
+  const handleSubSwiperScroll = async (isBeginning: boolean) => {
     if (!isBeginning) return swiperO?.mousewheel.disable()
 
     setTimeout(() => {
       swiperO?.mousewheel.enable()
-    }, 100)
-    
+    }, 300)
   }
 
   const toSlide = useCallback(
@@ -66,12 +67,17 @@ export default (): JSX.Element => {
     [swiperO, swiperI]
   )
 
+  useEffect(() => {
+    snowflake()
+  }, [])
+
   return (
     <div className="home">
       <Header routerIndex={routerIndex} toSlide={toSlide} />
       <Swiper
         direction="vertical"
         slidesPerView="auto"
+        // speed={500}
         spaceBetween={40}
         mousewheel
         simulateTouch={false}
@@ -82,10 +88,10 @@ export default (): JSX.Element => {
         onSwiper={(swiper) => setSwiperO(swiper)}
       >
         <SwiperSlide>
-          <Index />
+          <Index routerIndex={routerIndex} />
         </SwiperSlide>
         <SwiperSlide>
-          <Road />
+          <Road routerIndex={routerIndex} />
         </SwiperSlide>
         <SwiperSlide>
           <Swiper
@@ -115,6 +121,7 @@ export default (): JSX.Element => {
           </Swiper>
         </SwiperSlide>
       </Swiper>
+      <canvas></canvas>
     </div>
   )
 }

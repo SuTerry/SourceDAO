@@ -5,23 +5,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  > .home_index_content {
+
+  >.home_index_content {
     position: relative;
     width: 100%;
     margin-top: -100px;
-    > .h_i_c_bg {
+
+    >.h_i_c_bg {
       width: 850px;
       height: 480px;
       margin: 0 auto;
-      background: radial-gradient(
-        ellipse closest-side,
-        #b073ff,
-        #ffffff,
-        #060606
-      );
+      background: radial-gradient(ellipse closest-side,
+          #b073ff,
+          #ffffff,
+          #060606);
       opacity: 0.1;
     }
-    > .h_i_c_logo {
+
+    >.h_i_c_logo {
       position: absolute;
       width: 320px;
       height: 442px;
@@ -30,37 +31,47 @@
       right: 0;
       margin: 0 auto;
       background-image: url("@img/home/logo.png");
-      > img {
+      background-size: 320px 442px;
+
+      >img {
         width: 100%;
         height: 100%;
       }
     }
-    > .h_i_c_text {
+
+    >.h_i_c_text {
       position: absolute;
       top: 108px;
       left: 0;
       right: 0;
       margin: 0 auto;
-      > img {
+
+      >img {
         display: block;
         margin: 0 auto;
         margin-bottom: 20px;
       }
-      > h6 {
+
+      >h6 {
+        height: 30px;
         text-align: center;
         font-size: 28px;
         font-weight: 700;
         line-height: 1;
         margin-bottom: 74px;
+        overflow: hidden;
       }
-      > p {
+
+      >div {
+        height: 26px;
         text-align: center;
         font-size: 24px;
         line-height: 1;
+        overflow: hidden;
       }
     }
-    
-    > .h_i_c_buttons {
+
+    >.h_i_c_buttons {
       position: absolute;
       top: 460px;
       left: 0;
@@ -70,7 +81,9 @@
       display: flex;
       margin: 0 auto;
       justify-content: space-between;
-      > div {
+
+      >a {
+        display: block;
         width: 130px;
         height: 36px;
         border-radius: 10px;
@@ -78,17 +91,24 @@
         text-align: center;
         line-height: 36px;
         cursor: pointer;
-      }
-      > .h_i_c_b_launch {
-        background-color: #fff;
-        color: #000000;
-      }
-      > .h_i_c_b_paper {
+        color: #fff;
+        text-decoration: none;
         border: 1px solid #fff;
+        
+        
+        &:hover {
+          background-color: #fff;
+          color: #000000;
+        }
+      }
+
+      >.h_i_c_b_paper {
+        
       }
     }
   }
-  > .home_index_arrow {
+
+  >.home_index_arrow {
     position: absolute;
     width: 10px;
     height: 12px;
@@ -97,9 +117,11 @@
     right: 0;
     margin: 0 auto;
     z-index: 99;
-    animation: bounce-inSS 2s infinite; /* 启动动画特效 */
+    animation: bounce-inSS 2s infinite;
+    /* 启动动画特效 */
     cursor: pointer;
-    > img {
+
+    >img {
       width: 100%;
       height: 100%;
     }

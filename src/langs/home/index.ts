@@ -207,6 +207,10 @@ const team_raymondcoder_text3: Lang = {
   [ctsLang.en_us]: 'Proficient in Python, Rust and other development languages',
 }
 
+const coming: Lang = {
+  [ctsLang.zh_cn]: '敬请期待',
+  [ctsLang.en_us]: 'Coming Soon',
+}
 
 export {
   title,
@@ -250,4 +254,5 @@ export {
   team_raymondcoder_text2_outline,
   team_raymondcoder_text2_after,
   team_raymondcoder_text3,
+  coming,
 }
