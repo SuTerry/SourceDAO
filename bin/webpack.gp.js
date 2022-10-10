@@ -11,6 +11,7 @@ module.exports = merge(base, {
   output: {
     path: path.resolve(__dirname, '../docs'),
     publicPath: '/SourceDAO/'
+    // publicPath: './'
   },
   plugins: [
     new MiniCssExtractPlugin({
