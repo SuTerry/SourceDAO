@@ -78,7 +78,6 @@ const rules = [
         outputPath: 'fonts'
       }
     },
-    exclude: '/node_modules/'
   }
 ]
 
