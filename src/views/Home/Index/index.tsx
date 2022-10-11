@@ -19,6 +19,7 @@ interface IndexProps {
 
 const transition = {
   duration: 0.8,
+  delay: 0.4,
   ease: 'linear'
 }
 
@@ -28,6 +29,7 @@ export default ({ routerIndex }: IndexProps): JSX.Element => {
 
   const lang = langHook()
 
+  const bgControls = useAnimationControls()
   const logoControls = useAnimationControls()
   const titleControls = useAnimationControls()
   const sbuTitleControls = useAnimationControls()
@@ -35,6 +37,9 @@ export default ({ routerIndex }: IndexProps): JSX.Element => {
 
   useEffect(() => {
     if (routerIndex !== 0) return
+    // bg img
+    bgControls.set({ opacity: 0 })
+    bgControls.start({ opacity: 0.1 })
     // logo img
     logoControls.set({ opacity: 0, scale: 0 })
     logoControls.start({ opacity: 1, scale: 1 })
@@ -59,7 +64,16 @@ export default ({ routerIndex }: IndexProps): JSX.Element => {
 
     <div className="home_index">
       <div className="home_index_content">
-        <div className="h_i_c_bg"></div>
+        <motion.div
+          className="h_i_c_bg"
+          initial={{opacity: 0}}
+          animate={bgControls}
+          transition={{
+            duration: 0,
+            delay: 1.2,
+            ease: 'linear'
+          }}
+        ></motion.div>
         <div className="h_i_c_logo"></div>
         <div className="h_i_c_text">
           <motion.img

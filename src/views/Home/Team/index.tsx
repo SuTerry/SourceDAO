@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+
+import { motion, useAnimationControls } from 'framer-motion'
 
 import { homeLang } from '@langs/index'
 
@@ -12,9 +14,23 @@ import raymondcoderImg from '@img/home/raymondcoder.png'
 import lineImg from '@img/home/line.png'
 import logo from '@img/home/team_logo.png'
 
-export default (): JSX.Element => {
+interface TeamProps {
+  routerIndex: number
+}
+
+export default ({ routerIndex }: TeamProps): JSX.Element => {
 
   const lang = langHook()
+
+  const headerImgControls = useAnimationControls()
+
+  useEffect(() => {
+    if (routerIndex !== 2) return
+    // headerImgControls.set({ scale: 0 })
+    // headerImgControls.start({ scale: 1 })
+    headerImgControls.set({ scale: 0, rotate: 0 })
+    headerImgControls.start({ scale: 1, rotate: 360 })
+  }, [routerIndex])
 
   return (
     <div className="home_team">
@@ -24,7 +40,17 @@ export default (): JSX.Element => {
         <ul className="h_t_c_team">
           <li className='h_t_c_t_li h_t_c_t_li_william'>
             <div className="h_t_c_t_l_top">
-              <img className='h_t_c_t_l_t_header_img' src={williamImg} alt="" />
+              <motion.img
+                className='h_t_c_t_l_t_header_img'
+                src={williamImg}
+                initial={{ scale: 0 }}
+                animate={headerImgControls}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.5,
+                  ease: 'linear'
+                }}
+              />
               <div className="h_t_c_t_l_t_title">
                 Co-Founder william.eth
               </div>
@@ -44,7 +70,18 @@ export default (): JSX.Element => {
           </li>
           <li className='h_t_c_t_li h_t_c_t_li_lead'>
             <div className="h_t_c_t_l_top">
-              <img className='h_t_c_t_l_t_header_img' src={leadImg} alt="" />
+              <motion.img
+                className='h_t_c_t_l_t_header_img'
+                src={leadImg}
+                initial={{ scale: 0 }}
+                animate={headerImgControls}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.4,
+                  ease: 'linear'
+                }}
+              />
+
               <div className="h_t_c_t_l_t_title">
                 Lead Founder tiaotiao.eth
               </div>
@@ -64,7 +101,17 @@ export default (): JSX.Element => {
           </li>
           <li className='h_t_c_t_li h_t_c_t_li_raymondcoder'>
             <div className="h_t_c_t_l_top">
-              <img className='h_t_c_t_l_t_header_img' src={raymondcoderImg} alt="" />
+              <motion.img
+                className='h_t_c_t_l_t_header_img'
+                src={raymondcoderImg}
+                initial={{ scale: 0 }}
+                animate={headerImgControls}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.5,
+                  ease: 'linear'
+                }}
+              />
               <div className="h_t_c_t_l_t_title">
                 Co-Founder raymondcoder.bit
               </div>

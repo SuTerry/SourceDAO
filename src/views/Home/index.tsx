@@ -77,7 +77,7 @@ export default (): JSX.Element => {
       <Swiper
         direction="vertical"
         slidesPerView="auto"
-        // speed={500}
+        speed={800}
         spaceBetween={40}
         mousewheel
         simulateTouch={false}
@@ -113,7 +113,7 @@ export default (): JSX.Element => {
 
           >
             <SwiperSlide>
-              <Team />
+              <Team routerIndex={routerIndex} />
             </SwiperSlide>
             <SwiperSlide>
               <Footer />

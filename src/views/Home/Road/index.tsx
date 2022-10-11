@@ -56,6 +56,7 @@ export default ({ routerIndex }: RoadProps): JSX.Element => {
         animate={roadControls}
         transition={{
           duration: 0.6,
+          delay: 0.4,
           ease: 'linear'
         }}
       >
@@ -72,6 +73,7 @@ export default ({ routerIndex }: RoadProps): JSX.Element => {
               animate={leftTextControls}
               transition={{
                 duration: 0.6,
+                delay: 0.4,
                 ease: 'linear'
               }}
             >
@@ -88,7 +90,7 @@ export default ({ routerIndex }: RoadProps): JSX.Element => {
               animate={rightTextControls}
               transition={{
                 duration: 0.4,
-                delay: 0.1,
+                delay: 0.5,
                 ease: 'linear'
               }}
             >
@@ -106,7 +108,7 @@ export default ({ routerIndex }: RoadProps): JSX.Element => {
               animate={leftTextControls}
               transition={{
                 duration: 0.4,
-                delay: 0.2,
+                delay: 0.6,
                 ease: 'linear'
               }}
             >
@@ -123,7 +125,7 @@ export default ({ routerIndex }: RoadProps): JSX.Element => {
               animate={rightTextControls}
               transition={{
                 duration: 0.4,
-                delay: 0.3,
+                delay: 0.7,
                 ease: 'linear'
               }}
             >
