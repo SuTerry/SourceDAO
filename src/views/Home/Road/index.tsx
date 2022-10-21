@@ -86,7 +86,7 @@ export default ({ routerIndex }: RoadProps): JSX.Element => {
               <div className="h_r_c_r_s_text">{lang(homeLang.road_setp_2_1)}</div>
               <div className="h_r_c_r_s_text">{lang(homeLang.road_setp_2_2)}</div>
               <div className="h_r_c_r_s_text">{lang(homeLang.road_setp_2_3)}</div>
-              <div className="h_r_c_r_s_text">{lang(homeLang.road_setp_2_3)}</div>
+              <div className="h_r_c_r_s_text">{lang(homeLang.road_setp_2_4)}</div>
             </motion.div>
           </div>
           <div className="h_r_c_r_setp h_r_c_r_setp3">
