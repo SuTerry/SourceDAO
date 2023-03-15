@@ -1,4 +1,4 @@
-import React, { useEffect, SyntheticEvent } from 'react'
+import React, { useEffect } from 'react'
 
 import { useSwiper } from 'swiper/react'
 
@@ -57,11 +57,6 @@ export default ({ routerIndex }: IndexProps): JSX.Element => {
 
   }, [routerIndex])
 
-  const handleLaunch = (event: SyntheticEvent<EventTarget>) => {
-    event.preventDefault()
-    alert(lang(homeLang.coming))
-  }
-
   return (
 
     <div className="home_index">
@@ -106,10 +101,9 @@ export default ({ routerIndex }: IndexProps): JSX.Element => {
           transition={transition}
         >
           <motion.a
-            href="#"
+            href="//15.152.36.175/"
             className="h_i_c_b_launch"
             whileHover={{ scale: 1.2 }}
-            onClick={handleLaunch}
           >
             {lang(homeLang.launch_btn)}
           </motion.a>
